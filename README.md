@@ -26,6 +26,10 @@ The inventory level at which a new order should be placed.
 Reorder Point = Sales Velocity × Supplier Lead Time
 (Lead Time:days supplier take to deliver )
 
+          OR
+
+  ROP = Sales Velocity × Supplier Lead Time + Safety Stock
+
 Ensures inventory does not run out during supplier delivery time.
 
 if ROP is low :stockout ,lost sales .
