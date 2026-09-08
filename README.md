@@ -90,7 +90,7 @@ dataset in MySQL Workbench.
 
 **Top 5 fastest-moving products by average daily demand:**
 
-![Top 5 sales velocity](screenshots/sales_velocity_top5.png)
+![Top 5 avg_daily_demand](screenshots/avg_daily_demand_top5.png)
 
 Electronics dominates the top of the list (Monitor, Webcam, Power Bank),
 consistent with Electronics having the highest category-level demand
