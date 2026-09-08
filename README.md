@@ -90,7 +90,7 @@ dataset in MySQL Workbench.
 
 **Top 5 fastest-moving products by average daily demand:**
 
-![Top 5 avg_daily_demand](screenshots/avg_daily_demand_top5.png)
+![Top 5 avg_daily_demand](avg_daily_demand_top5.png)
 
 Electronics dominates the top of the list (Monitor, Webcam, Power Bank),
 consistent with Electronics having the highest category-level demand
@@ -98,7 +98,7 @@ multiplier in the data generator.
 
 **Understocked products, most urgent first:**
 
-![Understocked products](screenshots/understocked_products.png)
+![Understocked products](understocked_products.png)
 
 9 of 30 products are flagged Understock. Charging Cable and Power Bank —
 two of the products deliberately simulated as fast-movers — top the list
@@ -106,7 +106,7 @@ by units short, exactly as intended.
 
 **Supplier reliability — lead time vs. understock exposure:**
 
-![Supplier reliability](screenshots/supplier_reliability.png)
+![Supplier reliability](supplier_reliability.png)
 
 XYZ Distributors (14-day lead time, the longest in the supplier base)
 and Global Traders (10-day) each account for 2 of the 9 understocked
@@ -115,7 +115,7 @@ which is exactly the bottleneck this analysis is designed to surface.
 
 **Category-level turnover and overstock summary:**
 
-![Category summary](screenshots/category_summary.png)
+![Category summary](category_summary.png)
 
 Electronics carries the highest overstock count (3 products) despite
 also having the highest average turnover (2.11) — a reminder that fast
