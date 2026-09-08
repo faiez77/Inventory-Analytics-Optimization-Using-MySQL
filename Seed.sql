@@ -4,6 +4,7 @@
 -- (see that file for the generation logic and disclosure notes)
 -- ============================================================
 
+
 USE inventory_db;
 
 INSERT INTO products (product_id, product_name, category) VALUES
