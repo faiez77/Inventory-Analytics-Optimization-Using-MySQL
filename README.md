@@ -1,6 +1,5 @@
 # Inventory Analytics & Reorder Optimization (MySQL)
 
-
 An end-to-end inventory analytics project that turns raw sales and stock
 data into reorder decisions. Written in MySQL, using views and window-style
 aggregation to calculate demand, turnover, and reorder points — then flags
@@ -19,6 +18,7 @@ inventory-project/
 │   └── seed_data.sql       -- generated sample data (see note below)
 ├── scripts/
 │   └── generate_data.py    -- reproducible data generator
+├── screenshots/            -- query result screenshots (see Sample findings)
 └── README.md
 ```
 
@@ -83,18 +83,45 @@ Turnover Ratio   = Total Units Sold / Current Stock Quantity
   by design — see "What I'd extend next")
 - Inventory quantity reflects a real-time stock snapshot
 
-## Sample findings (from the generated dataset)
+## Sample findings (actual run results)
 
-- Out of 30 products, the reorder logic correctly isolates the 4 products
-  deliberately simulated as fast-movers as **Understock**, and 3 of the 4
-  simulated slow-movers as **Overstock** — confirming the SQL logic
-  produces sensible, actionable output.
-- Electronics products carry a noticeably higher average daily demand
-  than Home Appliances, consistent with the category-level demand
-  multipliers used to generate the data.
-- Suppliers with longer lead times (10–14 days) are disproportionately
-  linked to Understock flags — exactly the "slow supplier feeding a
-  fast-moving product" risk this project is designed to surface.
+Screenshots below are from running `sql/queries.sql` against the generated
+dataset in MySQL Workbench.
+
+**Top 5 fastest-moving products by average daily demand:**
+
+![Top 5 sales velocity](screenshots/sales_velocity_top5.png)
+
+Electronics dominates the top of the list (Monitor, Webcam, Power Bank),
+consistent with Electronics having the highest category-level demand
+multiplier in the data generator.
+
+**Understocked products, most urgent first:**
+
+![Understocked products](screenshots/understocked_products.png)
+
+9 of 30 products are flagged Understock. Charging Cable and Power Bank —
+two of the products deliberately simulated as fast-movers — top the list
+by units short, exactly as intended.
+
+**Supplier reliability — lead time vs. understock exposure:**
+
+![Supplier reliability](screenshots/supplier_reliability.png)
+
+XYZ Distributors (14-day lead time, the longest in the supplier base)
+and Global Traders (10-day) each account for 2 of the 9 understocked
+products — the longest lead times correlate with the most reorder risk,
+which is exactly the bottleneck this analysis is designed to surface.
+
+**Category-level turnover and overstock summary:**
+
+![Category summary](screenshots/category_summary.png)
+
+Electronics carries the highest overstock count (3 products) despite
+also having the highest average turnover (2.11) — a reminder that fast
+category-level turnover doesn't guarantee every individual product in
+that category is well-stocked. Home Appliances has zero overstocked
+products and the highest turnover ratio (2.63) of the three categories.
 
 ## How to run
 
