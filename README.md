@@ -1,5 +1,6 @@
 # Inventory Analytics & Reorder Optimization (MySQL)
 
+
 An end-to-end inventory analytics project that turns raw sales and stock
 data into reorder decisions. Written in MySQL, using views and window-style
 aggregation to calculate demand, turnover, and reorder points — then flags
